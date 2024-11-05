@@ -1,7 +1,7 @@
 from graphdataStructure import Graph
 from collections import deque
 
-def bfs(graph, start_node, target_node):
+def BFS(graph, start_node, target_node):
     color, distance, parent = {}, {}, {}
     
     for node in graph.graph:
@@ -49,4 +49,4 @@ def bfs(graph, start_node, target_node):
 
 # Example usage
 graph = Graph()
-bfs(graph, "Miami", "San Francisco")
+BFS(graph, "Miami", "San Francisco")
