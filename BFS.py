@@ -31,6 +31,7 @@ def BFS(graph, start_node, target_node):
                 current = parent[current]
             path.reverse()  
             print("Shortest Path: " + " --> ".join(path))
+            print("Traversal Order: " + " --> ".join(node_order))  # Print traversal order
             return path
 
         # Traverse all adjacent nodes
@@ -45,6 +46,7 @@ def BFS(graph, start_node, target_node):
 
     # If the target node is not reached
     print("Target node not reachable from start node.")
+    print("Traversal Order: " + " --> ".join(node_order))  # Print traversal order
     return None
 
 # Example usage
