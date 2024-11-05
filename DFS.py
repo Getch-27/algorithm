@@ -1,29 +1,46 @@
 from graphdataStructure import Graph
 
-def dfs(graph, start_node):
-    
+def DFS(graph, start_node, target_node):
     color, parent = {}, {}
-    node_order = []
     
     for node in graph.graph:
         color[node] = 'white'
         parent[node] = None
 
+    node_order = []
+    path = []
+
     def dfs_visit(node):
+        nonlocal path
         color[node] = 'gray'
         node_order.append(node)
         
-        # Traverse all adjacent nodes
+        if node == target_node:
+            # Trace back the path from target to start using parent pointers
+            while node is not None:
+                path.append(node)
+                node = parent[node]
+            path.reverse()  
+            print("Path Found: " + " --> ".join(path))
+            print("Traversal Order: " + " --> ".join(node_order))  # Print traversal order
+            return True
+
         for neighbor in graph.graph[node]:
             if color[neighbor] == 'white':
                 parent[neighbor] = node
-                dfs_visit(neighbor)
-
+                if dfs_visit(neighbor):  # Recur for DFS
+                    return True  
+        
         color[node] = 'black'
+        return False
 
     print("Depth-First Search Order:")
-    dfs_visit(start_node)
-    print(" --> ".join(node_order))
+    if dfs_visit(start_node):
+        return path
+    else:
+        print("Target node not reachable from start node.")
+        print("Traversal Order: " + " --> ".join(node_order)) 
+        return None
 
 graph = Graph()
-dfs(graph, "Seattle")
+DFS(graph, "Miami", "San Francisco")
