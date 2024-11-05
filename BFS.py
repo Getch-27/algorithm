@@ -1,8 +1,7 @@
 from graphdataStructure import Graph
 from collections import deque
 
-def bfs(graph, start_node):
-    
+def bfs(graph, start_node, target_node):
     color, distance, parent = {}, {}, {}
     
     for node in graph.graph:
@@ -24,6 +23,16 @@ def bfs(graph, start_node):
         current = queue.popleft()
         node_order.append(current)
         
+        if current == target_node:
+            # Trace back the path from target to start using parent pointers
+            path = []
+            while current is not None:
+                path.append(current)
+                current = parent[current]
+            path.reverse()  
+            print("Shortest Path: " + " --> ".join(path))
+            return path
+
         # Traverse all adjacent nodes
         for neighbor in graph.graph[current]:
             if color[neighbor] == 'white':  
@@ -33,7 +42,11 @@ def bfs(graph, start_node):
                 queue.append(neighbor)   
 
         color[current] = 'black'
-    print(" --> ".join(node_order))
 
-graph =Graph()
-bfs(graph, "Seattle")
+    # If the target node is not reached
+    print("Target node not reachable from start node.")
+    return None
+
+# Example usage
+graph = Graph()
+bfs(graph, "Miami", "San Francisco")
