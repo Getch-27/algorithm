@@ -1,7 +1,7 @@
 
 def max_heapify(A, i):
     """
-    This function performs max heapify operation on a given array A at index i.
+    performs max heapify operation on a given array A at index i.
     It ensures that the subtree rooted at index i is a max heap.
 
     Parameters:
