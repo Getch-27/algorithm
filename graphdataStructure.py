@@ -1,4 +1,25 @@
+
 class Graph:
+    """
+    A class to represent a graph data structure.
+
+    Attributes
+    graph : dict
+        A dictionary to store the graph nodes and their connections.
+
+    Methods
+    __init__(self, textFile='cities.txt')
+        Initializes the graph by parsing the given text file.
+
+    add_edge(self, u, v)
+        Adds a  edge between nodes u and v.
+
+    display(self)
+        Prints the graph nodes and their connections.
+
+    parse_graph(self, textFile)
+        Parses the given text file and populates the graph.
+    """
     def __init__(self, textFile='cities.txt'):
         self.graph = {}
         self.parse_graph(textFile)
@@ -8,7 +29,7 @@ class Graph:
             self.graph[u] = []
         if v not in self.graph:
             self.graph[v] = []
-        
+
         self.graph[u].append(v)
         self.graph[v].append(u)
 
@@ -24,17 +45,7 @@ class Graph:
                     self.add_edge(source, destination)
         except FileNotFoundError:
             print(f"Error: File '{textFile}' not found.")
-    
-    
 
    
 # graph = parse_graph('cities.txt')
-# graph.visualize()
-
-
-# g = Graph()
-# g.add_edge(0, 1)
-# g.add_edge(0, 2)
-# g.add_edge(1, 2)
-# g.add_edge(2, 3)
-# g.display()
+# graph.display()
