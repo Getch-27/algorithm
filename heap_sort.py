@@ -71,7 +71,6 @@ def heap_sort(A):
         max_heapify(subarray, 0)  
         A[:i] = subarray 
 
-# Example usage
-A = [3, 5, 1, 10, 2, 7]
+A = [3, 5, 1, 10, 2, 7 , 9 , 1 , 12]
 heap_sort(A)
 print("Sorted array:", A)
