@@ -13,6 +13,5 @@ This repository contains Python implementations of common data structures and al
   - BUILD_GRAPH-CLASS
   - [Depth-First Search (DFS)](#depth-first-search-dfs)
   - [Breadth-First Search (BFS)](#breadth-first-search-bfs)
-- [Usage](#usage)
 
 
